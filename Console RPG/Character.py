@@ -5,3 +5,6 @@ class Character:
         self.race=Race
         self.gender=Gender
         self.combat_class=Combat_Class
+      
+
+    
