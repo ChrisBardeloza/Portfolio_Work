@@ -19,7 +19,7 @@ for index in range(Character1):
 
     if index[3]== 'warrior':
         from Combat_Class_Dict import warrior
-        Character1.combat_class=worrior
+        Character1.combat_class=warrior
     elif index[3]== 'mage':
         from Combat_Class_Dict import mage
         Character1.combat_class=mage
@@ -78,8 +78,9 @@ def town_loop(town):
 def combat_loop():
     
     is_in_combat=True
-    while is_in_combat==True
-    print('Defeat the '+monster.name)
+    while is_in_combat==True:
+
+        print('Defeat the '+monster.name)
 
         
 main_loop()
