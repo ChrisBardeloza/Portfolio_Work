@@ -2,10 +2,8 @@
 from Town_Class import town
 from Character import Character
 from Towns import *
-from Combat_Class_Dict import *
-# Character sheet
-from Character import Character
-def create_character():
+from Monsters import *
+
 Character1=Character(
     input('What is your Name?:'),
     input('Choose a Race:'),
@@ -26,7 +24,7 @@ for index in range(Character1):
         from Combat_Class_Dict import ranger
 
 
-
+main_loop()
 def main_loop():
     #while character is alive or game isn't finished we are going to do stuff
         #if a person chooses town you're going to use town_loop
@@ -36,6 +34,20 @@ def main_loop():
     action=input('Would you like to enter?:')
     if action == 'yes':
         town_loop(current_town) 
+    print(current_town.vendor+' has trouble to disscuss')
+   
+    for action in town_loop(current_town):
+        if action=='go to vendor':
+            print('Hello '+Character1.name+' I am '+current_town.vendor+'.  There is a group of Goblins messing with my supply routes. I need you to help me out and deal with them.')
+            quest1= input('Will you help?:')
+            if quest1== 'yes':
+                print('Defeat the Goblins')
+            elif quest1== 'no': 
+                town_loop(current_town)
+                
+
+
+
     
     
 def town_loop(town):
@@ -43,8 +55,8 @@ def town_loop(town):
     while is_in_town== True:
         print('Welcome to '+ town.name)
         action=input('Where do you want to go?:')
-        print(action)
-        if action=='got to vendor':
+        
+        if action=='go to vendor':
             print('Visits '+town.vendor)
         elif action=='go to stash':
             print('Visits '+town.stash)
@@ -55,6 +67,10 @@ def town_loop(town):
         elif action=='leaves town':
             is_in_town = False
             print('Leaves '+ town.name)
+
+
+
+
         
 main_loop()
        
