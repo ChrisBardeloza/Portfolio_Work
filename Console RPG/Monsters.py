@@ -1,4 +1,6 @@
 class goblin:
+    def __init__(self, name):
+        self.name=name
     def bite(self):
         print('Goblin bites')
     def bash(self):
@@ -10,6 +12,8 @@ class goblin:
             setattr(self, k, v)
 
 class gremlin:
+    def __init__(self, name):
+        self.name=name
     def stab(self):
         print('Stabs')
     def bite(self):
@@ -21,6 +25,8 @@ class gremlin:
             setattr(self, k, v)
 
 class bear:
+    def __init__(self, name):
+        self.name=name
     def bite(self):
         print('Bear bites')
     def roar(self):

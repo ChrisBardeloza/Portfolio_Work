@@ -3,6 +3,7 @@ from Town_Class import town
 from Character import Character
 from Towns import *
 from Monsters import *
+from monster_class import monster
 
 Character1=Character(
     input('What is your Name?:'),
@@ -18,10 +19,13 @@ for index in range(Character1):
 
     if index[3]== 'warrior':
         from Combat_Class_Dict import warrior
+        Character1.combat_class=worrior
     elif index[3]== 'mage':
         from Combat_Class_Dict import mage
+        Character1.combat_class=mage
     elif index[3]== 'ranger':
         from Combat_Class_Dict import ranger
+        Character1.combat_class=ranger
 
 
 main_loop()
@@ -41,7 +45,9 @@ def main_loop():
             print('Hello '+Character1.name+' I am '+current_town.vendor+'.  There is a group of Goblins messing with my supply routes. I need you to help me out and deal with them.')
             quest1= input('Will you help?:')
             if quest1== 'yes':
+                monster.name=goblin
                 print('Defeat the Goblins')
+                combat_loop()
             elif quest1== 'no': 
                 town_loop(current_town)
                 
@@ -69,7 +75,11 @@ def town_loop(town):
             print('Leaves '+ town.name)
 
 
-
+def combat_loop():
+    
+    is_in_combat=True
+    while is_in_combat==True
+    print('Defeat the '+monster.name)
 
         
 main_loop()
