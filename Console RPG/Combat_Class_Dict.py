@@ -1,4 +1,5 @@
 # Combat Class 
+from entity import entity
 
 class warrior:
     def slash(self):
@@ -7,9 +8,11 @@ class warrior:
         print('Thrust')
     def shield(self):
         print('Blocks Attack')
-    def init(self, dictionary={'attack':60, 'defense':70, 'hp':100, 'mp':20}):
+    def __init__(self, dictionary={'attack':60, 'defense':70, 'hp':100, 'mp':20}):
+        self.dictionary=dictionary
         for k, v in dictionary.items():
             setattr(self, k, v)
+
 
 
 class mage:
@@ -20,6 +23,7 @@ class mage:
     def protect(self):
         print('Blocks Attack')
     def __init__(self,dictionary={'attack':80,'defense':40, 'hp':40, 'mp':90}):
+        self.dictionary=dictionary
         for k, v in dictionary.items():
             setattr(self, k, v)
 
@@ -31,5 +35,6 @@ class ranger:
     def stike(self):
         print('Melee Target')
     def __init__(self,dictionary={'attack':70, 'defense':60, 'hp':60, 'mp':60}):
+        self.dictionary=dictionary
         for k, v in dictionary.items():
             setattr(self, k, v)
