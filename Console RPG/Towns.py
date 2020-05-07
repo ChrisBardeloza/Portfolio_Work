@@ -1,6 +1,7 @@
 from Town_Class import town
+from quests import *
 
-Britanica= town('Britanica','Miranda', 'Bank of Britanica', 'Wolves Den', 'Daxos', True)
+Britanica= town('Britanica','Miranda', 'Bank of Britanica', 'Wolves Den', 'Daxos', True, quest1)
 
 Bucsden= town('Bucsden','Guntor', 'Stash', 'Bucsden Inn', 'Malik', False)
 
