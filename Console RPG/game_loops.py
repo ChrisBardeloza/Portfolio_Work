@@ -30,8 +30,8 @@ from quests import *
         #     from Combat_Class_Dict import ranger
 
 def quest1_loop():
-    #while character is alive or game isn't finished we are going to do stuff
-        #if a person chooses town you're going to use town_loop
+    # while character is alive or game isn't finished we are going to do stuff
+        # if a person chooses town you're going to use town_loop
     Britanica= town('Britanica','Miranda', 'Bank of Britanica', 'Wolves Den', 'Daxos', True)
     current_town=Britanica
     monster.monster_class=goblin
