@@ -29,35 +29,11 @@ from quests import *
         # elif Character1.combat_class== 'ranger':
         #     from Combat_Class_Dict import ranger
 
-def quest1_loop():
-    # while character is alive or game isn't finished we are going to do stuff
-        # if a person chooses town you're going to use town_loop
-    Britanica= town('Britanica','Miranda', 'Bank of Britanica', 'Wolves Den', 'Daxos', True)
-    current_town=Britanica
-    monster.monster_class=goblin
-    print('You are just outside of '+ current_town.name)
-    action=input('Would you like to enter?:')
-    if action == 'yes':
-        print(current_town.vendor+' has trouble to disscuss')
-        town_loop(current_town)
+
 
     # if (current_town.quest.is_accepted == true)
         # print(quest1.objective)
         # combat_loop()
-
-    # for action in town_loop(current_town):
-    #     if action=='go to vendor':
-    #         break
-    #         print('Hello traveler I am '+current_town.vendor+'.  There is a group of Goblins messing with my supply routes. I need you to help me out and deal with them.')
-    #         input(quest1.is_accepted)
-
-    #     if quest1.is_accepted=='yes':
-    #         quest1.is_accepted=True
-
-    #         while quest1.is_accepted== True:
-    #             print(quest1.objective)
-
-    #     combat_loop()
 
 def town_loop(town):
     is_in_town=True
@@ -67,9 +43,17 @@ def town_loop(town):
 
         if action=='go to vendor':
             print('Visits '+town.vendor)
-            # if town.quest != null
-                # town.quest.openingDialogue()
-                # town.quest.promptPlayerToAccept()
+            if town==Britanica and town.quest=='quest1':
+                
+                print(quest1.prompt)
+                quest1.promptPlayerToAccept()
+                if quest1.is_accepted==True:
+                    print('Leaves Town')
+                    is_in_town=False
+                    combat_loop()
+        # if town.quest != null
+            # town.quest.openingDialogue()
+            # town.quest.promptPlayerToAccept()
         elif action=='go to stash':
             print('Visits '+town.stash)
         elif action=='go to inn':
@@ -83,10 +67,25 @@ def town_loop(town):
 
 def combat_loop():
     # Character1.deal_damage(goblin)
+        # if character uses attack skill use deal_damage funtion
+            # if current monster use deal_damage function
+                # 
     is_in_combat=True
     while is_in_combat==True:
-        print('Defeat the '+monster.monster_class)
+        print(quest1.objective)
+        action= input('')
 
+def quest1_loop():
+    # while character is alive or game isn't finished we are going to do stuff
+        # if a person chooses town you're going to use town_loop
+    current_town=Britanica
+    current_monster=goblin
+    current_quest=quest1
+    print('You are just outside of '+ current_town.name)
+    action=input('Would you like to enter?:')
+    if action == 'yes':
+        town_loop(current_town)
+        print(current_town.vendor+' has trouble to disscuss')
 
 
 
