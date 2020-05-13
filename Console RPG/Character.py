@@ -8,4 +8,5 @@ class Character(entity):
         self.combat_class=Combat_Class
       
 
-    
+    def do_damage(self,target):
+        self.deal_damage(self.combat_class,target.monster_class)
