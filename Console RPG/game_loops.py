@@ -97,7 +97,7 @@ def combat_loop(current_monster,Character1):
             Character1.combat_class.executeskill(Character1,current_monster)
             print(Character1.combat_class.skill2.description)
             if Character1.combat_class.skill2.is_attack_skill==True:
-                Character1.do_damage(Character1.combat_class,current_monster.monster_class)
+                Character1.do_damage(current_monster)
             elif Character1.combat_class.skill2.is_attack_skill!=True:
                 Character1.combat_class.skill2.description
         
@@ -105,7 +105,7 @@ def combat_loop(current_monster,Character1):
             Character1.combat_class.executeskill(Character1,current_monster)
             print(Character1.combat_class.skill3.description)
             if Character1.combat_class.skill3.is_attack_skill==True:
-                Character1.do_damage(Character1.combat_class,current_monster.monster_class)
+                Character1.do_damage(current_monster)
             elif Character1.combat_class.skill3.is_attack_skill!=True:
                 Character1.combat_class.skill3.description
 
@@ -124,8 +124,8 @@ def combat_loop(current_monster,Character1):
         if Character1.combat_class.hp <=0:
             print('You Lose :( Try again')
             combat_loop(current_monster,Character1)
-        elif Character1.combat_class.hp>=1:
-            combat_loop(current_monster,Character1)
+        elif Character1.combat_class.hp>=1 and is_in_combat==False:
+            break
             
 
                 
