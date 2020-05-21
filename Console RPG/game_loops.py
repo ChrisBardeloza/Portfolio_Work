@@ -18,6 +18,18 @@ def Main_loop():
         )
 
         print('Hello '+Character1.name+ ' Welcome to a new game') 
+        print(Character1.race+'s are very useful around here.')
+
+        if Character1.race=='human':
+            from Races import human
+            Character1.race=human()
+        elif Character1.race== 'elf':
+            from Races import elf
+            Character1.race=elf()
+        elif Character1.race== 'dwarf':
+            from Races import dwarf
+            Character1.race=dwarf()
+        
         print('you have choosen to be a '+Character1.combat_class)
 
         if Character1.combat_class== 'warrior':
@@ -80,9 +92,11 @@ def combat_loop(current_monster,Character1):
     # Character1.deal_damage(goblin)
         # if character uses attack skill use deal_damage funtion
             # if current monster use deal_damage function
-                # 
+                
     is_in_combat=True
     while is_in_combat==True:
+        turn = 1
+        print(f'Round {turn}')
        
         action= input('Use a skill:')
         if action == Character1.combat_class.skill1.name:
@@ -113,13 +127,30 @@ def combat_loop(current_monster,Character1):
             print('You Win!!!')
             is_in_combat=False
             break
-        else:
+        elif current_monster.monster_class.hp >= 0 and turn%3==1:
             monster_action=current_monster.monster_class.skill1
             if monster_action==current_monster.monster_class.skill1:
                 print(current_monster.monster_class.skill1.description)
                 current_monster.monster_class.executeskill(current_monster,Character1)
                 if current_monster.monster_class.skill1.is_attack_skill==True:
                     current_monster.do_damage(Character1)
+                turn+=1
+        elif current_monster.monster_class.hp >= 0 and turn%3==2:
+            monster_action=current_monster.monster_class.skill2
+            if monster_action==current_monster.monster_class.skill2:
+                print(current_monster.monster_class.skill2.description)
+                current_monster.monster_class.executeskill(current_monster,Character1)
+                if current_monster.monster_class.skill2.is_attack_skill==True:
+                    current_monster.do_damage(Character1)
+                turn+=1
+        elif current_monster.monster_class.hp >= 0 and turn%3==0:
+            monster_action=current_monster.monster_class.skill3
+            if monster_action==current_monster.monster_class.skill3:
+                print(current_monster.monster_class.skill3.description)
+                current_monster.monster_class.executeskill(current_monster,Character1)
+                if current_monster.monster_class.skill3.is_attack_skill==True:
+                    current_monster.do_damage(Character1)
+                turn+=1
             
         if Character1.combat_class.hp <=0:
             print('You Lose :( Try again')
