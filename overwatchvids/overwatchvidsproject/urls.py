@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from highlights import views
+from highlightsapp.views import home_view, highlights_view, hero_view, useraccount_view
 
 urlpatterns = [
+    path('', home_view, name='overwatchvids'),
+    path('heros/', hero_view, name='heros'),
+    path('highlights/', highlights_view, name='highlights'),
+    path('account/', useraccount_view, name='account'),
     path('admin/', admin.site.urls),
-    path('', views.highlights_view, name='home')
+    
 ]
