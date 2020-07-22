@@ -18,7 +18,7 @@ from django.urls import path
 from highlightsapp.views import home_view, highlights_view, hero_view, useraccount_view
 
 urlpatterns = [
-    path('', home_view, name='overwatchvids'),
+    path('', home_view, name='home'),
     path('heros/', hero_view, name='heros'),
     path('highlights/', highlights_view, name='highlights'),
     path('account/', useraccount_view, name='account'),
